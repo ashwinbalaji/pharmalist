@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Pharmalist</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="js/datatables/datatables.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      </style>
+    <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="#" class="navbar-brand" data-toggle="fullscreen"><img src="images/logo.png" class="m-r-sm">Pharmalist</a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-light lter b-r aside-md hidden-print" id="nav">
+                    <section class="vbox">
+
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+                                data-size="5px" data-color="#333333">
+
+                                <!-- nav -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="index.html">
+                                                <i class="fa fa-dashboard icon">
+                                                    <b class="bg-danger"></b>
+                                                </i>
+                                                <span>Add Pharmacy</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="list-pharmacy.html">
+                                                <i class="fa fa-pencil icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span>Pharmacy List</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mapview.html">
+                                                <i class="fa fa-pencil icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span>Map View</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- / nav -->
+                            </div>
+                        </section>
+
+                        <footer class="footer lt hidden-xs b-t b-light">
+                            <div id="chat" class="dropup">
+                                <section class="dropdown-menu on aside-md m-l-n">
+                                    <section class="panel bg-white">
+                                        <header class="panel-heading b-b b-light">Active chats</header>
+                                        <div class="panel-body animated fadeInRight">
+                                            <p class="text-sm">No active chats.</p>
+                                            <p><a href="#" class="btn btn-sm btn-default">Start a chat</a></p>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+                            <div id="invite" class="dropup">
+                                <section class="dropdown-menu on aside-md m-l-n">
+                                    <section class="panel bg-white">
+                                        <header class="panel-heading b-b b-light">
+                                            John <i class="fa fa-circle text-success"></i>
+                                        </header>
+                                        <div class="panel-body animated fadeInRight">
+                                            <p class="text-sm">No contacts in your lists.</p>
+                                            <p><a href="#" class="btn btn-sm btn-facebook"><i class="fa fa-fw fa-facebook"></i>
+                                                    Invite from
+                                                    Facebook</a></p>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-default btn-icon">
+                                <i class="fa fa-angle-left text"></i>
+                                <i class="fa fa-angle-right text-active"></i>
+                            </a>
+
+                        </footer>
+                    </section>
+                </aside>
+                <!-- /.aside -->
+                <section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder">
+                            <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
+                                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                                <!-- <li><a href="#">UI kit</a></li>
+                <li><a href="#">Table</a></li> -->
+                                <li class="active">Pharmacy List</li>
+                            </ul>
+                            <div class="m-b-md">
+                                <h3 class="m-b-none">Pharmacies</h3>
+                            </div>
+                            <section class="panel panel-default">
+                                <div id="map"></div>
+
+
+                            </section>
+                        </section>
+                    </section>
+                    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+                </section>
+                <aside class="bg-light lter b-l aside-md hide" id="notes">
+                    <div class="wrapper">Notification</div>
+                </aside>
+            </section>
+        </section>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <script src="js/app.plugin.js"></script>
+    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- datatables -->
+    <script src="js/datatables/jquery.dataTables.min.js"></script>
+    <script>
+        var customLabel = {
+            restaurant: {
+                label: 'R'
+            },
+            bar: {
+                label: 'B'
+            }
+        };
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: new google.maps.LatLng(-33.863276, 151.207977),
+                zoom: 12
+            });
+            var infoWindow = new google.maps.InfoWindow;
+
+            // Change this depending on the name of your PHP or XML file
+            downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function (data) {
+                var xml = data.responseXML;
+                var markers = xml.documentElement.getElementsByTagName('marker');
+                Array.prototype.forEach.call(markers, function (markerElem) {
+                    var id = markerElem.getAttribute('id');
+                    var name = markerElem.getAttribute('name');
+                    var address = markerElem.getAttribute('address');
+                    var type = markerElem.getAttribute('type');
+                    var point = new google.maps.LatLng(
+                        parseFloat(markerElem.getAttribute('lat')),
+                        parseFloat(markerElem.getAttribute('lng')));
+
+                    var infowincontent = document.createElement('div');
+                    var strong = document.createElement('strong');
+                    strong.textContent = name
+                    infowincontent.appendChild(strong);
+                    infowincontent.appendChild(document.createElement('br'));
+
+                    var text = document.createElement('text');
+                    text.textContent = address
+                    infowincontent.appendChild(text);
+                    var icon = customLabel[type] || {};
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: point,
+                        label: icon.label
+                    });
+                    marker.addListener('click', function () {
+                        infoWindow.setContent(infowincontent);
+                        infoWindow.open(map, marker);
+                    });
+                });
+            });
+        }
+
+
+
+        function downloadUrl(url, callback) {
+            var request = window.ActiveXObject ?
+                new ActiveXObject('Microsoft.XMLHTTP') :
+                new XMLHttpRequest;
+
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    request.onreadystatechange = doNothing;
+                    callback(request, request.status);
+                }
+            };
+
+            request.open('GET', url, true);
+            request.send(null);
+        }
+
+        function doNothing() { }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPNC3KUR3JzI4rKSBaq8AcWBu7Dq1xjek&callback=initMap">
+    </script>
+</body>
+
+</html>
