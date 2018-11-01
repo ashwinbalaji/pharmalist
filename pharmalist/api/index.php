@@ -12,6 +12,8 @@ $tmp = $_FILES['myFile']['tmp_name'];
 
 if(!isset($_POST['delivery'])){
     $delivery = 'off';
+}else{
+    $delivery = 'on';
 }      
 
 // get uploaded file's extension
@@ -32,7 +34,6 @@ if(move_uploaded_file($tmp,$path)){
 $name = $_POST['name'];
 $email = $_POST['email'];
 $address = $_POST['address'];
-$delivery = ($delivery=='on')?"Yes":"No";
 $file_name =$path;
 
 
